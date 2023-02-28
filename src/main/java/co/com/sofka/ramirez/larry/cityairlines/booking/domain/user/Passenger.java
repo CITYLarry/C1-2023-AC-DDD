@@ -6,7 +6,7 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.Passen
 
 public class Passenger extends Entity<Identity> {
 
-    private final String seatId;
+    private String seatId;
     private final PassengerData data;
 
     public Passenger(Identity id, String seatId, PassengerData data) {
@@ -21,5 +21,17 @@ public class Passenger extends Entity<Identity> {
 
     public PassengerData data() {
         return data;
+    }
+
+    protected void assignSeat(String seatId) {
+        this.seatId = seatId;
+    }
+
+    public void updateSeat(String newSeatId) {
+        if (seatId == null) {
+            throw new IllegalStateException("The passenger has no assigned seat");
+        }
+        //TODO: database check unsigned seats
+        this.seatId = newSeatId;
     }
 }
