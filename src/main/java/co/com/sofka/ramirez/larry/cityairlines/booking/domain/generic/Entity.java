@@ -1,4 +1,4 @@
-package co.com.sofka.ramirez.larry.cityairlines.booking.application.generic;
+package co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic;
 
 public abstract class Entity<I extends Identity> {
 

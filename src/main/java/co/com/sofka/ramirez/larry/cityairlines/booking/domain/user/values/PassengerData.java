@@ -1,6 +1,6 @@
 package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values;
 
-import co.com.sofka.ramirez.larry.cityairlines.booking.application.generic.ValueObject;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.ValueObject;
 
 public class PassengerData implements ValueObject<PassengerData.Props> {
 

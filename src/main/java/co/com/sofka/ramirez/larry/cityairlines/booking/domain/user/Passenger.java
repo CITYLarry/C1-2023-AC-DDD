@@ -1,7 +1,7 @@
 package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user;
 
-import co.com.sofka.ramirez.larry.cityairlines.booking.application.generic.Entity;
-import co.com.sofka.ramirez.larry.cityairlines.booking.application.generic.Identity;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Entity;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Identity;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.PassengerData;
 
 public class Passenger extends Entity<Identity> {
