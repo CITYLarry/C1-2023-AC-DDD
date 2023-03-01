@@ -7,7 +7,7 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.Passen
 public class Passenger extends Entity<Identity> {
 
     private String seatId;
-    private final PassengerData data;
+    private PassengerData data;
 
     public Passenger(Identity id, String seatId, PassengerData data) {
         super(id);
