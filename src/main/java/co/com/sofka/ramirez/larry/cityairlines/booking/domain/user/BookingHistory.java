@@ -2,6 +2,7 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Entity;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Identity;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.Reservation;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -9,29 +10,24 @@ import java.util.Set;
 
 public class BookingHistory extends Entity<Identity> {
 
-    //TODO: Replace String with Reservation object
-    private final Set<String> reservations;
+    private final Set<Reservation> reservations;
 
     public BookingHistory(Identity id) {
         super(id);
         this.reservations = new HashSet<>();
     }
 
-    //TODO: Replace String with Reservation object
-    protected void addReservation(String reservation) {
+    protected void addReservation(Reservation reservation) {
         this.reservations.add(reservation);
     }
 
-    //TODO: Replace String with Reservation object
-    //TODO: edit filter r -> r.equals(reservationId)
-    protected Optional<String> findReservation(Identity reservationId) {
+    protected Optional<Reservation> findReservation(Identity reservationId) {
         return this.reservations.stream()
                 .filter(r -> false)
                 .findFirst();
     }
 
-    //TODO: Replace String with Reservation object
-    protected Set<String> getHistory() {
+    protected Set<Reservation> getHistory() {
         return reservations;
     }
 }

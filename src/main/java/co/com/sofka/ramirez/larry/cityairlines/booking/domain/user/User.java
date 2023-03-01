@@ -2,6 +2,7 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.AggregateRoot;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Identity;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.Reservation;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserData;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserFacturationData;
@@ -36,8 +37,7 @@ public class User extends AggregateRoot<Identity> {
         passenger.updateSeat(seat);
     }
 
-    //TODO: Replace String with object Reservation
-    public void addBookingHistoryReservation(String reservation){
+    public void addBookingHistoryReservation(Reservation reservation){
         bookingHistory.addReservation(reservation);
     }
 
@@ -45,7 +45,7 @@ public class User extends AggregateRoot<Identity> {
         bookingHistory.findReservation(reservationId);
     }
 
-    public Set<String> getBookingHistory(){
+    public Set<Reservation> getBookingHistory(){
         return bookingHistory.getHistory();
     }
 
