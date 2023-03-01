@@ -25,7 +25,7 @@ public class UserBehavior extends EventChange {
                    event.data().value().password()
            );
            user.passengers = new HashSet<>();
-           user.bookingHistoryId = new BookingHistory(new Identity()).identity();
+           user.bookingHistory = new BookingHistory(new Identity());
            user.luggage = new HashMap<>();
         });
     }
