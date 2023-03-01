@@ -2,8 +2,6 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.commands;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Command;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Identity;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserData;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserFacturationData;
 
 public class CreateUserCommand extends Command {
 

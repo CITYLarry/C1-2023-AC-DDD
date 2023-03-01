@@ -2,79 +2,46 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.AggregateRoot;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.DomainEvent;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Identity;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.Reservation;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.BookingHistory;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Luggage;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Passenger;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserData;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserFacturationData;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Address;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Password;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserEmail;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserName;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+public class User extends AggregateRoot<UserId> {
 
-public class User extends AggregateRoot<Identity> {
-
-    protected UserFacturationData facturationData;
-    protected UserData data;
-    protected Set<Passenger> passengers;
+    protected UserName userName;
+    protected Password password;
+    protected UserEmail userEmail;
+    protected Address address;
+    protected Set<Passenger> passengerSet;
     protected BookingHistory bookingHistory;
-    protected Map<Identity, Luggage> luggage;
+    protected Map<PassengerId, Luggage> luggageMap;
 
-    public User(Identity id, UserFacturationData facturationData, UserData data){
-        super(id);
-        subscribe(new UserBehavior(this));
-        appendChange(new CreatedUser(facturationData, data)).apply();
-    }
 
-    private User(Identity id){
-        super(id);
+    private User(UserId userId){
+        super(userId);
         subscribe(new UserBehavior(this));
     }
 
-    public static User from(Identity userId, List<DomainEvent> events){
+    public User(UserId userId, UserName userName, Password password, UserEmail userEmail, Address address) {
+        super(userId);
+        subscribe(new UserBehavior(this));
+        appendChange(new CreatedUser(userName, password, userEmail, address));
+    }
+
+    public static User from(UserId userId, List<DomainEvent> events) {
         User user = new User(userId);
         events.forEach(user::applyEvent);
         return user;
-    }
-
-    public void addPassenger(Passenger passenger){
-        passengers.add(passenger);
-    }
-
-    public void assignPassengerSeat(Passenger passenger, String seat){
-        passenger.assignSeat(seat);
-    }
-
-    public void updatePassengerSeat(Passenger passenger, String seat){
-        passenger.updateSeat(seat);
-    }
-
-    public void addBookingHistoryReservation(Reservation reservation){
-        bookingHistory.addReservation(reservation);
-    }
-
-    public void findBookingReservation(Identity reservationId){
-        bookingHistory.findReservation(reservationId);
-    }
-
-    public Set<Reservation> getBookingHistory(){
-        return bookingHistory.getHistory();
-    }
-
-    public void addLuggage(Identity passengerId, Luggage luggage){
-        this.luggage.put(passengerId, luggage);
-    }
-
-    public void removeLuggage(Identity passengerId){
-        luggage.remove(passengerId);
-    }
-
-    public Map<Identity, Luggage> getAllLuggage(){
-        return luggage;
-    }
-
-    public void updateLuggageType(Luggage luggage, Luggage.LuggageType type){
-        luggage.updateType(type);
     }
 }

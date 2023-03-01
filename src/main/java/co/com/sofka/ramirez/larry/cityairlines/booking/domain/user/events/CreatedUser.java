@@ -1,26 +1,44 @@
 package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.DomainEvent;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserData;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.UserFacturationData;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Address;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Password;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserEmail;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserName;
 
 
 public class CreatedUser extends DomainEvent {
 
-    private final UserFacturationData facturationData;
-    private final UserData data;
+    private UserName userName;
+    private Password password;
+    private UserEmail userEmail;
+    private Address address;
 
-    public CreatedUser(UserFacturationData facturationData, UserData data){
-        super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.UserCreated");
-        this.facturationData = facturationData;
-        this.data = data;
+    public CreatedUser() {
+        super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser");
     }
 
-    public UserFacturationData facturationData(){
-        return facturationData;
+    public CreatedUser(UserName userName, Password password, UserEmail userEmail, Address address){
+        super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser");
+        this.userName = userName;
+        this.password = password;
+        this.userEmail = userEmail;
+        this.address = address;
     }
 
-    public UserData data(){
-        return data;
+    public UserName userName() {
+        return userName;
+    }
+
+    public Password password() {
+        return password;
+    }
+
+    public UserEmail userEmail() {
+        return userEmail;
+    }
+
+    public Address address() {
+        return address;
     }
 }
