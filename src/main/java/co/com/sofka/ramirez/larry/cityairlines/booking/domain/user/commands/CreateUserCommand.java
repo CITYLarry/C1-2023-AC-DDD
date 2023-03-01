@@ -1,18 +1,6 @@
 package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.commands;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Command;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.BookingHistory;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Luggage;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Passenger;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Address;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Password;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserEmail;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserName;
-
-import java.util.Map;
-import java.util.Set;
 
 public class CreateUserCommand extends Command {
 
