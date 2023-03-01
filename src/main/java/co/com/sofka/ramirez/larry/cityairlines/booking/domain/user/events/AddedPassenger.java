@@ -13,7 +13,7 @@ public class AddedPassenger extends DomainEvent {
     private PassengerEmail passengerEmail;
     private IdNum idNum;
 
-    public AddedPassenger(){
+    private AddedPassenger(){
         super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.AddedPassenger");
     }
 

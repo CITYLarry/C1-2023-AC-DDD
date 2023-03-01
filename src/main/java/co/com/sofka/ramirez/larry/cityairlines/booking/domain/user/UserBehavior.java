@@ -5,6 +5,7 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Book
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Passenger;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.AddedPassenger;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.RemovedPassenger;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.BookingHistoryId;
 
 import java.util.HashMap;
@@ -26,6 +27,10 @@ public class UserBehavior extends EventChange {
         apply((AddedPassenger event) -> {
             Passenger passenger = Passenger.from(event.passengerId(), event.passengerName(), event.idNum(), event.passengerEmail());
             user.passengerSet.add(passenger);
+        });
+
+        apply((RemovedPassenger event) -> {
+           user.passengerSet.removeIf(passenger -> passenger.identity().value().equals(event.passengerId().value()));
         });
     }
 }
