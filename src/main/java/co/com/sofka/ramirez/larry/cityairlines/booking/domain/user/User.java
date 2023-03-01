@@ -20,6 +20,7 @@ public class User extends AggregateRoot<Identity> {
 
     public User(Identity id, UserFacturationData facturationData, UserData data){
         super(id);
+        subscribe(new UserBehavior(this));
         appendChange(new CreatedUser(facturationData, data)).apply();
     }
 }
