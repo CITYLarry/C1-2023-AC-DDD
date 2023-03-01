@@ -2,7 +2,9 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.user;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.EventChange;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.BookingHistory;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Luggage;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Passenger;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.AddedLuggage;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.AddedPassenger;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.RemovedPassenger;
@@ -31,6 +33,11 @@ public class UserBehavior extends EventChange {
 
         apply((RemovedPassenger event) -> {
            user.passengerSet.removeIf(passenger -> passenger.identity().value().equals(event.passengerId().value()));
+        });
+
+        apply((AddedLuggage event) -> {
+            Luggage luggage = Luggage.from(event.luggageId(), event.type());
+            user.luggageMap.put(event.passengerId(), luggage);
         });
     }
 }
