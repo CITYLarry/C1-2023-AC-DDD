@@ -5,10 +5,7 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.DomainEven
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.BookingHistory;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Luggage;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.entities.Passenger;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.AddedLuggage;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.AddedPassenger;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.RemovedPassenger;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.*;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.LuggageId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
@@ -70,5 +67,9 @@ public class User extends AggregateRoot<UserId> {
         Objects.requireNonNull(type);
         Objects.requireNonNull(passengerId);
         appendChange(new AddedLuggage(luggageId, type, passengerId)).apply();
+    }
+
+    public void removeLuggage(PassengerId passengerId) {
+        appendChange(new RemovedLuggage(passengerId)).apply();
     }
 }
