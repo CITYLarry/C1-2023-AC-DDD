@@ -11,9 +11,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.seat.ClassType;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.seat.Price;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AssignSeatUseCase implements CommandUseCase<AssignSeatCommand> {
 
     private final EventsRepository eventsRepository;

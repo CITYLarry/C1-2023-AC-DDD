@@ -7,9 +7,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.User;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.commands.RemoveLuggageCommand;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class RemoveLuggageUseCase implements CommandUseCase<RemoveLuggageCommand> {
 
     private final EventsRepository eventsRepository;

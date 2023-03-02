@@ -10,9 +10,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.A
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Password;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserEmail;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserName;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CreateUserUseCase implements CommandUseCase<CreateUserCommand> {
 
     private final EventsRepository eventsRepository;

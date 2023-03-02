@@ -10,9 +10,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.ReservationId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.payment.PaymentDate;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.payment.PaymentMethod;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class MakePaymentUseCase implements CommandUseCase<MakePaymentCommand> {
 
     private final EventsRepository eventsRepository;

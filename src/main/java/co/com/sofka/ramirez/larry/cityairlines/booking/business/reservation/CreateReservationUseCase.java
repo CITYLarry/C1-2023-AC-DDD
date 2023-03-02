@@ -7,9 +7,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.Reserv
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.commands.CreateReservationCommand;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.ReservationId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CreateReservationUseCase implements CommandUseCase<CreateReservationCommand> {
 
     private final EventsRepository eventsRepository;

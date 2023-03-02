@@ -12,9 +12,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.flight.DepartureTime;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.FlightId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.ReservationId;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class BookFlightUseCase implements CommandUseCase<BookFlightCommand> {
 
     private final EventsRepository eventsRepository;

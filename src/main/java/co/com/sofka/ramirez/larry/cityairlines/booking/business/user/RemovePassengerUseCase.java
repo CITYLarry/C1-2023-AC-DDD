@@ -8,9 +8,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.User;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.commands.RemovePassengerCommand;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class RemovePassengerUseCase implements CommandUseCase<RemovePassengerCommand> {
 
     private final EventsRepository eventsRepository;

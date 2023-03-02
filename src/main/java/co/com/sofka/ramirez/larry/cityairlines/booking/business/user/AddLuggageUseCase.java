@@ -8,9 +8,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.commands.AddL
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.LuggageId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AddLuggageUseCase implements CommandUseCase<AddLuggageCommand> {
 
     private final EventsRepository eventsRepository;

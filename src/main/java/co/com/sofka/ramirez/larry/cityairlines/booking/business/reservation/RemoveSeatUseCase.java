@@ -7,9 +7,11 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.Reserv
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.commands.RemoveSeatCommand;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.ReservationId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class RemoveSeatUseCase implements CommandUseCase<RemoveSeatCommand> {
 
     private final EventsRepository eventsRepository;
