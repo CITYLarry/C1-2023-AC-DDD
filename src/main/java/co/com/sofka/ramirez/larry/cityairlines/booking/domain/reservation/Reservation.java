@@ -26,10 +26,10 @@ public class Reservation extends AggregateRoot<ReservationId> {
         subscribe(new ReservationBehavior(this));
     }
 
-    public Reservation(ReservationId id, UserId userId, Flight flight, Payment payment){
+    public Reservation(ReservationId id, UserId userId){
         super(id);
         subscribe(new ReservationBehavior(this));
-        appendChange(new CreatedReservation(userId,flight, payment)).apply();
+        appendChange(new CreatedReservation(userId)).apply();
     }
 
     public void assignSeat(PassengerId passengerId, Seat seat){

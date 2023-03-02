@@ -14,8 +14,6 @@ public class ReservationBehavior extends EventChange {
         apply((CreatedReservation event) -> {
             reservation.userId = event.userId();
             reservation.seatsMap = new HashMap<>();
-            reservation.flight = event.flight();
-            reservation.payment = event.payment();
         });
 
         apply((AssignedSeat event) -> {

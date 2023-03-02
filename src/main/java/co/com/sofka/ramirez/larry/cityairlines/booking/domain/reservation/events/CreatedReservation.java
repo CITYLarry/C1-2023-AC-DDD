@@ -9,29 +9,17 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identi
 public class CreatedReservation extends DomainEvent {
 
     private UserId userId;
-    private Flight flight;
-    private Payment payment;
 
     public CreatedReservation() {
         super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation");
     }
 
-    public CreatedReservation(UserId userId,Flight flight, Payment payment){
+    public CreatedReservation(UserId userId){
         super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation");
         this.userId = userId;
-        this.flight = flight;
-        this.payment = payment;
     }
 
     public UserId userId(){
         return userId;
-    }
-
-    public Flight flight(){
-        return flight;
-    }
-
-    public Payment payment(){
-        return payment;
     }
 }
