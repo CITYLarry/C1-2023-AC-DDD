@@ -1,4 +1,4 @@
-package co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.entities;
+package co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Entity;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.SeatId;
