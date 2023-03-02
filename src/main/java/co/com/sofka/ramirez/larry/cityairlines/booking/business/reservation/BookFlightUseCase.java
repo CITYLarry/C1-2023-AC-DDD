@@ -35,7 +35,8 @@ public class BookFlightUseCase implements CommandUseCase<BookFlightCommand> {
                 new DepartureTime(command.getDepartureTime()),
                 new ArrivalTime(command.getArrivalTime())
         ));
-
-        return null;
+        return reservation.getUncommittedChanges().stream()
+                .map(eventsRepository::saveEvent)
+                .toList();
     }
 }

@@ -8,6 +8,7 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entiti
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.AssignedSeat;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.BookedFlight;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.MadePayment;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.RemovedSeat;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.ReservationId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
@@ -60,6 +61,15 @@ public class Reservation extends AggregateRoot<ReservationId> {
                 flight.arrivalAirport(),
                 flight.departureTime(),
                 flight.arrivalTime()))
+                .apply();
+    }
+
+    public void makePayment(Payment payment) {
+        Objects.requireNonNull(payment);
+        appendChange(new MadePayment(
+                payment.identity(),
+                payment.paymentMethod(),
+                payment.paymentDate()))
                 .apply();
     }
 }
