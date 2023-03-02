@@ -2,8 +2,8 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.event
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.DomainEvent;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Identity;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.Flight;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.Payment;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.entities.Flight;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.entities.Payment;
 
 public class CreatedReservation extends DomainEvent {
 

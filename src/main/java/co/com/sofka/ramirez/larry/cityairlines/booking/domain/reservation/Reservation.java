@@ -2,6 +2,9 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.AggregateRoot;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.Identity;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.entities.Flight;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.entities.Payment;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.entities.Seat;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.ReservationId;
 
@@ -21,19 +24,5 @@ public class Reservation extends AggregateRoot<ReservationId> {
         appendChange(new CreatedReservation(userId, flight, payment));
     }
 
-    public void updateSeatIsAvailable(Seat seat, Boolean available) {
-        seat.updateIsAvailable(available);
-    }
 
-    public void updateFlightAvailableSeats(List<String> availableSeats) {
-        flight.updateAvailableSeats(availableSeats);
-    }
-
-    public boolean validatePayment(){
-        return payment.validate();
-    }
-
-    public void emitTicket(Reservation reservation){
-        System.out.println(reservation.toString());
-    }
 }
