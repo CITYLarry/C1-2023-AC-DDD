@@ -18,7 +18,19 @@ public class RemoveSeatCommand extends Command {
         return passengerId;
     }
 
-    public String reservationId() {
+    public String getPassengerId() {
+        return passengerId;
+    }
+
+    public void setPassengerId(String passengerId) {
+        this.passengerId = passengerId;
+    }
+
+    public String getReservationId() {
         return reservationId;
+    }
+
+    public void setReservationId(String reservationId) {
+        this.reservationId = reservationId;
     }
 }

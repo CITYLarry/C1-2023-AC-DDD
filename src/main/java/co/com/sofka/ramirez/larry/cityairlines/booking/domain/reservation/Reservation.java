@@ -1,6 +1,7 @@
 package co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.AggregateRoot;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.DomainEvent;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities.Flight;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities.Payment;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities.Seat;
@@ -11,6 +12,7 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -30,6 +32,12 @@ public class Reservation extends AggregateRoot<ReservationId> {
         super(id);
         subscribe(new ReservationBehavior(this));
         appendChange(new CreatedReservation(userId)).apply();
+    }
+
+    public static Reservation from(ReservationId reservationId, List<DomainEvent> events){
+        Reservation reservation = new Reservation(reservationId);
+        events.forEach(reservation::applyEvent);
+        return reservation;
     }
 
     public void assignSeat(PassengerId passengerId, Seat seat){

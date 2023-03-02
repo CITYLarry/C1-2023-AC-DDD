@@ -14,11 +14,19 @@ public class CreateReservationCommand extends Command {
         this.userId = userId;
     }
 
-    public String reservationId() {
+    public String getReservationId() {
         return reservationId;
     }
 
-    public String userId() {
+    public void setReservationId(String reservationId) {
+        this.reservationId = reservationId;
+    }
+
+    public String getUserId() {
         return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

@@ -25,19 +25,39 @@ public class AssignSeatCommand extends Command {
         return seatId;
     }
 
-    public ClassType.SeatClass classType() {
+    public void setSeatId(String seatId) {
+        this.seatId = seatId;
+    }
+
+    public ClassType.SeatClass getClassType() {
         return classType;
     }
 
-    public Integer price() {
+    public void setClassType(ClassType.SeatClass classType) {
+        this.classType = classType;
+    }
+
+    public Integer getPrice() {
         return price;
     }
 
-    public String passengerId() {
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getPassengerId() {
         return passengerId;
     }
 
-    public String reservationId() {
+    public void setPassengerId(String passengerId) {
+        this.passengerId = passengerId;
+    }
+
+    public String getReservationId() {
         return reservationId;
+    }
+
+    public void setReservationId(String reservationId) {
+        this.reservationId = reservationId;
     }
 }
