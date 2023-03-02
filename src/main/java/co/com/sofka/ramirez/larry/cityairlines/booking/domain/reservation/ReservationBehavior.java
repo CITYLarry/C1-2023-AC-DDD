@@ -3,6 +3,7 @@ package co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.EventChange;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.AssignedSeat;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.RemovedSeat;
 
 import java.util.HashMap;
 
@@ -19,6 +20,10 @@ public class ReservationBehavior extends EventChange {
 
         apply((AssignedSeat event) -> {
             reservation.seatsMap.put(event.passengerId(), event.seat());
+        });
+
+        apply((RemovedSeat event) -> {
+           reservation.seatsMap.remove(event.passengerId());
         });
     }
 }
