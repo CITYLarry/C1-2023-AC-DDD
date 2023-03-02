@@ -4,17 +4,19 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.AggregateR
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities.Flight;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities.Payment;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities.Seat;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.AssignedSeat;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.values.identities.ReservationId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.PassengerId;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.identities.UserId;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Reservation extends AggregateRoot<ReservationId> {
 
     protected UserId userId;
-    protected Map<PassengerId, Seat> seats;
+    protected Map<PassengerId, Seat> seatsMap;
     protected Flight flight;
     protected Payment payment;
 
@@ -29,5 +31,9 @@ public class Reservation extends AggregateRoot<ReservationId> {
         appendChange(new CreatedReservation(userId,flight, payment)).apply();
     }
 
-
+    public void assignSeat(PassengerId passengerId, Seat seat){
+        Objects.requireNonNull(passengerId);
+        Objects.requireNonNull(seat);
+        appendChange(new AssignedSeat(passengerId, seat)).apply();
+    }
 }
