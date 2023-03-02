@@ -1,7 +1,9 @@
 package co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation;
 
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.generic.EventChange;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.entities.Flight;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.AssignedSeat;
+import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.BookedFlight;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.RemovedSeat;
 
@@ -22,6 +24,16 @@ public class ReservationBehavior extends EventChange {
 
         apply((RemovedSeat event) -> {
            reservation.seatsMap.remove(event.passengerId());
+        });
+
+        apply((BookedFlight event) -> {
+            reservation.flight = Flight.from(
+                    event.flightId(),
+                    event.departureAirport(),
+                    event.arrivalAirport(),
+                    event.departureTime(),
+                    event.arrivalTime()
+            );
         });
     }
 }
