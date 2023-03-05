@@ -78,7 +78,6 @@ public class AddLuggageUseCaseTest {
         AddedLuggage luggage = (AddedLuggage) result.get(0);
 
         Assertions.assertEquals(addedLuggage.passengerId().value(), luggage.passengerId().value());
-        Assertions.assertEquals(addedLuggage.passengerId().value(), luggage.passengerId().value());
         Assertions.assertEquals(addedLuggage.type(), luggage.type());
     }
 }

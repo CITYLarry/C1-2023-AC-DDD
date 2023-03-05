@@ -9,7 +9,7 @@ public class AssignedSeat extends DomainEvent {
     private PassengerId passengerId;
     private Seat seat;
 
-    public AssignedSeat() {
+   private AssignedSeat() {
         super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.AssignedSeat");
     }
 

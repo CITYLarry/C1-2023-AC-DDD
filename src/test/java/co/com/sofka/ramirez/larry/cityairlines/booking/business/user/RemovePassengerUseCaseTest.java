@@ -8,10 +8,6 @@ import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.commands.Remo
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.AddedPassenger;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser;
 import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.RemovedPassenger;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Address;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.Password;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserEmail;
-import co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.values.user.UserName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -11,7 +11,7 @@ public class AssignSeatCommand extends Command {
     private String passengerId;
     private String reservationId;
 
-    public AssignSeatCommand() {}
+    private AssignSeatCommand() {}
 
     public AssignSeatCommand(String seatId, ClassType.SeatClass classType, Integer price, String passengerId, String reservationId) {
         this.seatId = seatId;
