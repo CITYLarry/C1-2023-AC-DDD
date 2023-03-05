@@ -10,7 +10,7 @@ public class CreatedReservation extends DomainEvent {
 
     private UserId userId;
 
-    public CreatedReservation() {
+    private CreatedReservation() {
         super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.reservation.events.CreatedReservation");
     }
 

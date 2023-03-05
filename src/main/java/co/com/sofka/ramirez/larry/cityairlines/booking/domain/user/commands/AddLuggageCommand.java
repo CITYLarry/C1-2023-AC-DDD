@@ -10,7 +10,7 @@ public class AddLuggageCommand extends Command {
     private String passengerId;
     private String userId;
 
-    public AddLuggageCommand() {}
+    private AddLuggageCommand() {}
 
     public AddLuggageCommand(String luggageId, Luggage.LuggageType type, String passengerId, String userId) {
         this.luggageId = luggageId;

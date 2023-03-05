@@ -7,7 +7,7 @@ public class RemovePassengerCommand extends Command {
     private String passengerId;
     private String userId;
 
-    public RemovePassengerCommand() {}
+    private RemovePassengerCommand() {}
 
     public RemovePassengerCommand(String passengerId, String userId) {
         this.passengerId = passengerId;

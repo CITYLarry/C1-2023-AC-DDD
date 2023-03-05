@@ -14,7 +14,7 @@ public class CreatedUser extends DomainEvent {
     private UserEmail userEmail;
     private Address address;
 
-    public CreatedUser() {
+    private CreatedUser() {
         super("co.com.sofka.ramirez.larry.cityairlines.booking.domain.user.events.CreatedUser");
     }
 

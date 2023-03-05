@@ -7,7 +7,7 @@ public class CreateReservationCommand extends Command {
     private String reservationId;
     private String userId;
 
-    public CreateReservationCommand(){}
+    private CreateReservationCommand(){}
 
     public CreateReservationCommand(String reservationId, String userId){
         this.reservationId = reservationId;

@@ -11,7 +11,7 @@ public class CreateUserCommand extends Command {
     private String address;
 
 
-    public CreateUserCommand(){}
+    private CreateUserCommand(){}
 
     public CreateUserCommand(String userId, String userName, String password, String userEmail, String address) {
         this.userId = userId;

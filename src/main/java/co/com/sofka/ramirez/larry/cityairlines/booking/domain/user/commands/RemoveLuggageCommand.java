@@ -7,7 +7,7 @@ public class RemoveLuggageCommand extends Command {
     private String passengerId;
     private String userId;
 
-    public RemoveLuggageCommand(){}
+    private RemoveLuggageCommand(){}
 
     public RemoveLuggageCommand(String passengerId, String userId) {
         this.passengerId = passengerId;

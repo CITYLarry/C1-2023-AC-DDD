@@ -29,6 +29,9 @@ public class UserBehavior extends EventChange {
 
         apply((AddedPassenger event) -> {
             Passenger passenger = Passenger.from(event.passengerId(), event.passengerName(), event.idNum(), event.passengerEmail());
+            if(user.passengerSet == null) {
+                user.passengerSet = new HashSet<>();
+            }
             user.passengerSet.add(passenger);
         });
 

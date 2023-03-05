@@ -10,7 +10,7 @@ public class AddPassengerCommand extends Command {
     private String idNum;
     private String userId;
 
-    public AddPassengerCommand() {}
+    private AddPassengerCommand() {}
 
     public AddPassengerCommand(String passengerId, String passengerName, String passengerEmail, String idNum, String userId){
         this.passengerId = passengerId;
